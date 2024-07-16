@@ -16,7 +16,6 @@ jobs:
         uses: graalvm/setup-graalvm@v1
         with:
           java-version: "21"
-          architecture: x64
           distribution: graalvm
           cache: 'gradle'
       - name: Validate version
