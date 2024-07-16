@@ -1,0 +1,23 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "management.tracing.propagation.format",
+      "description": "B3 Header Format.",
+      "type": "brave.propagation.B3Propagation.Format",
+      "defaultValue": "Single"
+    },
+    {
+      "name": "valensas.observability.version-metrics.name",
+      "description": "Name of the component metric.",
+      "type": "java.lang.String",
+      "defaultValue": "valensas_application"
+    },
+    {
+      "name": "valensas.observability.version-metrics.enabled",
+      "description": "Enable or disable version metrics.",
+      "type": "java.lang.Boolean",
+      "defaultValue": "true"
+    }
+  ]
+}
