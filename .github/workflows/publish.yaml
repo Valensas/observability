@@ -16,22 +16,13 @@ jobs:
         uses: graalvm/setup-graalvm@v1
         with:
           java-version: "21"
-          architecture: x64
           distribution: graalvm
           cache: 'gradle'
-      - name: Validate version
+      - name: Publish
         run: |
           VERSION=${GITHUB_REF#refs/tags/}
-          if grep -Eq "version\s+=\s+\"${VERSION}\"" ./build.gradle.kts
-          then
-            echo "Publishing version '${VERSION}'"
-            ./gradlew publish
-          else
-            echo "Detected tag version '${VERSION}' and version from build.gradle.kts does not match."
-            exit 1
-          fi
-      - name: Publish
-        run: ./gradlew publishToCentralPortal
+          echo "Publishing version '${VERSION}'"
+          ./gradlew "-Pversion=$VERSION" publishToCentralPortal
         env:
           SIGNING_PASSPHRASE: ${{ secrets.SIGNING_PASSPHRASE }}
           SIGNING_SECRETKEY: ${{ secrets.SIGNING_SECRETKEY }}
