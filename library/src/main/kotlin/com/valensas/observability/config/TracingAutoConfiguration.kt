@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 @AutoConfigureBefore(BraveAutoConfiguration::class)
+@ConditionalOnProperty(value = ["management.tracing.propagation.type"], havingValue = "B3", matchIfMissing = false)
 open class TracingAutoConfiguration {
     @Bean
-    @ConditionalOnProperty(value = ["management.tracing.propagation.type"], havingValue = "B3", matchIfMissing = false)
     open fun propagationFactoryBuilder(
         @Value("\${management.tracing.propagation.format:SINGLE}")
         format: B3Propagation.Format,
