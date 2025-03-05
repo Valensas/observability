@@ -1,7 +1,7 @@
 plugins {
-    id("org.springframework.boot") version "3.3.1" apply false
-    id("io.spring.dependency-management") version "1.1.6"
-    id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.3"
+    id("org.springframework.boot") version "3.4.3" apply false
+    id("io.spring.dependency-management") version "1.1.7"
+    id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.4"
 }
 
 dependencyManagement {
@@ -11,10 +11,10 @@ dependencyManagement {
 }
 
 dependencies {
-    implementation("org.graalvm.polyglot:polyglot:24.0.2")
+    implementation("org.graalvm.polyglot:polyglot:24.1.2")
     compileOnly("io.micrometer:micrometer-tracing-bridge-brave")
     compileOnly("org.springframework.boot:spring-boot-starter-actuator")
-    compileOnly("io.github.openfeign:feign-micrometer:13.3")
+    compileOnly("io.github.openfeign:feign-micrometer:13.5")
     compileOnly("org.springframework.boot:spring-boot-starter")
     compileOnly("org.springframework.boot:spring-boot-starter-webflux")
 }
