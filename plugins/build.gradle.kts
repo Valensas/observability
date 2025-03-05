@@ -1,6 +1,6 @@
 plugins {
     `java-gradle-plugin`
-    id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.3"
+    id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.4"
 }
 
 group = "com.valensas.observability-artifacts"
