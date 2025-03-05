@@ -6,14 +6,12 @@ import org.graalvm.home.Version
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.SpringBootVersion
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.context.annotation.Configuration
 import java.io.FileInputStream
 import java.util.Properties
 
 @Configuration
-@ConditionalOnBean(MeterRegistry::class)
 @ConditionalOnProperty("valensas.observability.version-metrics.enabled", havingValue = "true", matchIfMissing = true)
 open class VersionMetricsAutoConfiguration(
     private val registry: MeterRegistry,
