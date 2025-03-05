@@ -24,9 +24,13 @@ open class VersionMetricsAutoConfiguration(
         registerVersion("springboot", SpringBootVersion.getVersion() ?: "Unknown")
         registerVersion("java", Runtime.version().version().joinToString("."))
 
-        if (System.getProperty("org.graalvm.home") != null) {
+        try {
             registerVersion("graalvm", Version.getCurrent().toString())
+        } catch (e: Exception) {
+            logger.info("GraalVM version could not be determined")
+            logger.debug("GraalVM version could not be determined", e)
         }
+
         registerPropertyFile("dependency-versions.properties")
         registerPropertyFile("project-info.properties")
     }
