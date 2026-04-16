@@ -8,6 +8,13 @@ plugins {
     id("java-library")
 }
 
+
+dependencies {
+    compileOnly("org.springframework.boot:spring-boot-gradle-plugin:4.0.5")
+    implementation("com.gorylenko.gradle-git-properties:gradle-git-properties:2.5.7")
+    testImplementation("org.springframework.boot:spring-boot-gradle-plugin:4.0.5")
+}
+
 subprojects {
     apply(plugin = "maven-publish")
     apply(plugin="java-library")
@@ -15,9 +22,11 @@ subprojects {
     apply(plugin="org.jmailen.kotlinter")
 
     group = "com.valensas"
+    version = "local"
 
     repositories {
         mavenCentral()
+        gradlePluginPortal()
     }
 
     java.sourceCompatibility = JavaVersion.VERSION_21

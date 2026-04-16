@@ -1,5 +1,6 @@
 package com.valensas.observability.plugin
 
+import com.gorylenko.GitPropertiesPluginExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.SourceSetContainer
@@ -7,7 +8,7 @@ import java.io.File
 import java.nio.file.Path
 import java.util.Properties
 
-class ObservabilityArtifactsPlugin : Plugin<Project> {
+open class ObservabilityArtifactsPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.tasks.register("observabilityArtifacts") {
             val sourceSets = project.extensions.getByType(SourceSetContainer::class.java)
@@ -21,6 +22,24 @@ class ObservabilityArtifactsPlugin : Plugin<Project> {
                 outputResourceDir.toFile().mkdirs()
                 writeDependencyVersions(project, outputResourceDir)
                 writeProjectInfo(project, outputResourceDir)
+            }
+        }
+
+        project.pluginManager.withPlugin("org.springframework.boot") {
+            project.extensions.findByName("springBoot")?.let { ext ->
+                ext.javaClass.getMethod("buildInfo").invoke(ext)
+            }
+
+            project.pluginManager.apply("com.gorylenko.gradle-git-properties")
+            project.extensions.configure(GitPropertiesPluginExtension::class.java) {
+                it.keys =
+                    listOf(
+                        "git.branch",
+                        "git.commit.time",
+                        "git.commit.id.abbrev",
+                        "git.dirty",
+                        "git.tags"
+                    )
             }
         }
     }

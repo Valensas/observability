@@ -17,6 +17,7 @@ dependencies {
     compileOnly("io.github.openfeign:feign-micrometer:13.5")
     compileOnly("org.springframework.boot:spring-boot-starter")
     compileOnly("org.springframework.boot:spring-boot-starter-webflux")
+
 }
 
 
