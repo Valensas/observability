@@ -22,7 +22,6 @@ subprojects {
     apply(plugin="org.jmailen.kotlinter")
 
     group = "com.valensas"
-    version = "local"
 
     repositories {
         mavenCentral()

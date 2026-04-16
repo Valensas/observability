@@ -1,21 +1,20 @@
-
 package com.valensas.observability.config
 
 import io.micrometer.core.instrument.MeterRegistry
 import io.micrometer.core.instrument.Tag
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.actuate.info.InfoEndpoint
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class BuildInfoConfiguration(
+@ConditionalOnProperty("valensas.observability.build-metrics.enabled", havingValue = "true", matchIfMissing = true)
+open class BuildInfoAutoConfiguration(
     private val registry: MeterRegistry,
     private val infoEndpoint: InfoEndpoint,
 ) {
     init {
         val labels = flatten(infoEndpoint.info()).map { (k, v) -> Tag.of(k, v) }
-        labels.forEach {
-            println("${it.key} -> ${it.value}")
-        }
         registry.gauge("build_info", labels, 1)
     }
 
