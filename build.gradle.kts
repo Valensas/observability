@@ -1,9 +1,8 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("com.github.ben-manes.versions") version "0.51.0"
-    kotlin("jvm") version "2.0.0"
-    id("org.jmailen.kotlinter") version "4.4.1"
+    kotlin("jvm") version "2.3.20"
+    id("org.jmailen.kotlinter") version "5.4.2"
     id("maven-publish")
     id("java-library")
 }
@@ -18,6 +17,7 @@ subprojects {
 
     repositories {
         mavenCentral()
+        gradlePluginPortal()
     }
 
     java.sourceCompatibility = JavaVersion.VERSION_17

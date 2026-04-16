@@ -9,13 +9,25 @@
     },
     {
       "name": "valensas.observability.version-metrics.name",
-      "description": "Name of the component metric.",
+      "description": "Name of the component versions metric.",
       "type": "java.lang.String",
       "defaultValue": "valensas_application"
     },
     {
       "name": "valensas.observability.version-metrics.enabled",
       "description": "Enable or disable version metrics.",
+      "type": "java.lang.Boolean",
+      "defaultValue": "true"
+    },
+    {
+      "name": "valensas.observability.build-metrics.name",
+      "description": "Name of the build info metric.",
+      "type": "java.lang.String",
+      "defaultValue": "valensas_application"
+    },
+    {
+      "name": "valensas.observability.build-metrics.enabled",
+      "description": "Enable or disable build info metrics.",
       "type": "java.lang.Boolean",
       "defaultValue": "true"
     }

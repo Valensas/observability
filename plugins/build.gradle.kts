@@ -1,6 +1,6 @@
 plugins {
     `java-gradle-plugin`
-    id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.3"
+    id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.4"
 }
 
 group = "com.valensas.observability-artifacts"
@@ -12,6 +12,12 @@ gradlePlugin {
             implementationClass = "com.valensas.observability.plugin.ObservabilityArtifactsPlugin"
         }
     }
+}
+
+dependencies {
+    compileOnly("org.springframework.boot:spring-boot-gradle-plugin:4.0.5")
+    implementation("com.gorylenko.gradle-git-properties:gradle-git-properties:2.5.7")
+    testImplementation("org.springframework.boot:spring-boot-gradle-plugin:4.0.5")
 }
 
 signing {
