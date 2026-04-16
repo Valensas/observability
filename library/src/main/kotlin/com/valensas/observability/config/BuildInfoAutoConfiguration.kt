@@ -12,13 +12,18 @@ import org.springframework.context.annotation.Configuration
 open class BuildInfoAutoConfiguration(
     private val registry: MeterRegistry,
     private val infoEndpoint: InfoEndpoint,
+    @Value("\${valensas.observability.build-metrics.name:build_info}")
+    private val name: String,
 ) {
     init {
         val labels = flatten(infoEndpoint.info()).map { (k, v) -> Tag.of(k, v) }
-        registry.gauge("build_info", labels, 1)
+        registry.gauge(name, labels, 1)
     }
 
-    private fun flatten(map: Map<*, *>, prefix: String = ""): List<Pair<String, String>> =
+    private fun flatten(
+        map: Map<*, *>,
+        prefix: String = ""
+    ): List<Pair<String, String>> =
         map.flatMap { (key, value) ->
             val fullKey = if (prefix.isEmpty()) "$key" else "$prefix.$key"
             when (value) {
