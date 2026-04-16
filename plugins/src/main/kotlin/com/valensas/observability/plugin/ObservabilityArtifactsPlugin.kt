@@ -8,7 +8,7 @@ import java.io.File
 import java.nio.file.Path
 import java.util.Properties
 
-open class ObservabilityArtifactsPlugin : Plugin<Project> {
+class ObservabilityArtifactsPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.tasks.register("observabilityArtifacts") {
             val sourceSets = project.extensions.getByType(SourceSetContainer::class.java)
