@@ -13,7 +13,7 @@ open class BuildInfoAutoConfiguration(
     private val registry: MeterRegistry,
     private val infoEndpoint: InfoEndpoint,
     @Value("\${valensas.observability.build-metrics.name:build_info}")
-    private val name: String,
+    private val name: String
 ) {
     init {
         val labels = flatten(infoEndpoint.info()).map { (k, v) -> Tag.of(k, v) }
