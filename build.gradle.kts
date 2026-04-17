@@ -18,6 +18,7 @@ subprojects {
 
     repositories {
         mavenCentral()
+        gradlePluginPortal()
     }
 
     java.sourceCompatibility = JavaVersion.VERSION_21
