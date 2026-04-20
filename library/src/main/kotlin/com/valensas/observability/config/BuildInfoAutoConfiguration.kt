@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration
 open class BuildInfoAutoConfiguration(
     private val registry: MeterRegistry,
     private val infoEndpoint: InfoEndpoint,
-    @Value("\${valensas.observability.build-metrics.name:build_info}")
+    @Value("\${valensas.observability.build-metrics.name:build.info}")
     private val name: String
 ) {
     init {
