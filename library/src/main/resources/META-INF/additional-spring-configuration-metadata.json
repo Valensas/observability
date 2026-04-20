@@ -23,7 +23,7 @@
       "name": "valensas.observability.build-metrics.name",
       "description": "Name of the build info metric.",
       "type": "java.lang.String",
-      "defaultValue": "build_info"
+      "defaultValue": "build.info"
     },
     {
       "name": "valensas.observability.build-metrics.enabled",
