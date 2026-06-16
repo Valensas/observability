@@ -1,8 +1,10 @@
 plugins {
-    id("org.springframework.boot") version "3.4.3" apply false
+    id("org.springframework.boot") version "3.5.15" apply false
     id("io.spring.dependency-management") version "1.1.7"
     id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.4"
 }
+
+extra["kotlin.version"] = "2.4.0"
 
 dependencyManagement {
     imports {
@@ -14,7 +16,7 @@ dependencies {
     implementation("org.graalvm.polyglot:polyglot:24.1.2")
     compileOnly("io.micrometer:micrometer-tracing-bridge-brave")
     compileOnly("org.springframework.boot:spring-boot-starter-actuator")
-    compileOnly("io.github.openfeign:feign-micrometer:13.5")
+    compileOnly("io.github.openfeign:feign-micrometer:13.13")
     compileOnly("org.springframework.boot:spring-boot-starter")
     compileOnly("org.springframework.boot:spring-boot-starter-webflux")
 }
