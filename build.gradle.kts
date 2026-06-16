@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("com.github.ben-manes.versions") version "0.52.0"
-    kotlin("jvm") version "2.0.0"
-    id("org.jmailen.kotlinter") version "5.0.1"
+    id("com.github.ben-manes.versions") version "0.54.0"
+    kotlin("jvm") version "2.4.0"
+    id("org.jmailen.kotlinter") version "5.5.0"
     id("maven-publish")
     id("java-library")
 }
