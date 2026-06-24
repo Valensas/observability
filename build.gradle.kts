@@ -21,10 +21,10 @@ subprojects {
         gradlePluginPortal()
     }
 
-    java.sourceCompatibility = JavaVersion.VERSION_21
+    java.sourceCompatibility = JavaVersion.VERSION_25
     kotlin {
         compilerOptions {
-            jvmTarget = JvmTarget.JVM_21
+            jvmTarget = JvmTarget.JVM_25
         }
     }
 
