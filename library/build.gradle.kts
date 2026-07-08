@@ -20,6 +20,9 @@ dependencies {
     compileOnly("io.github.openfeign:feign-micrometer:13.13")
     compileOnly("org.springframework.boot:spring-boot-starter")
     compileOnly("org.springframework.boot:spring-boot-starter-webflux")
+
+    api(platform("io.opentelemetry.instrumentation:opentelemetry-instrumentation-bom:2.28.0"))
+    api("io.opentelemetry.instrumentation:opentelemetry-spring-boot-starter")
 }
 
 
