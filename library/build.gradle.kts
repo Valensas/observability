@@ -23,6 +23,7 @@ dependencies {
 
     api(platform("io.opentelemetry.instrumentation:opentelemetry-instrumentation-bom:2.28.0"))
     api("io.opentelemetry.instrumentation:opentelemetry-spring-boot-starter")
+    api("io.opentelemetry:opentelemetry-extension-trace-propagators")
 }
 
 
