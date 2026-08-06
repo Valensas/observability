@@ -24,6 +24,12 @@ dependencies {
     api(platform("io.opentelemetry.instrumentation:opentelemetry-instrumentation-bom:2.28.0"))
     api("io.opentelemetry.instrumentation:opentelemetry-spring-boot-starter")
     api("io.opentelemetry:opentelemetry-extension-trace-propagators")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+    implementation("io.opentelemetry:opentelemetry-extension-kotlin")
+
+    testImplementation("io.opentelemetry:opentelemetry-sdk")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-webflux")
 }
 
 

@@ -30,6 +30,18 @@
       "description": "Enable or disable build info metrics.",
       "type": "java.lang.Boolean",
       "defaultValue": "true"
+    },
+    {
+      "name": "valensas.observability.trace-response-header.enabled",
+      "description": "Expose the active OpenTelemetry trace ID as an HTTP response header for reactive applications.",
+      "type": "java.lang.Boolean",
+      "defaultValue": "true"
+    },
+    {
+      "name": "valensas.observability.trace-response-header.name",
+      "description": "HTTP response header used to expose the active OpenTelemetry trace ID.",
+      "type": "java.lang.String",
+      "defaultValue": "X-Trace-Id"
     }
   ]
 }

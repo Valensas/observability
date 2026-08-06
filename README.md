@@ -43,6 +43,38 @@ Allows for customization of [B3 header propagation](https://github.com/openzipki
 is enabled when `management.tracing.propagation.type=B3` and the header format can be configured using
 `management.tracing.propagation.format=SINGLE/MULTI/SINGLE_NO_PARENT`. The default value is `SINGLE`.
 
+### Coroutine trace context
+
+Detached coroutine scopes do not automatically inherit the trace context of the request that launches them. Use
+`launchWithCurrentTrace` when detached work must remain correlated with the active OpenTelemetry trace:
+
+```kotlin
+import com.valensas.observability.coroutine.launchWithCurrentTrace
+
+CoroutineScope(Dispatchers.IO).launchWithCurrentTrace {
+    logger.info("Detached work started")
+}
+```
+
+The helper remains non-blocking and returns a regular `Job`. Structured coroutine code that already inherits its
+parent context does not need this helper.
+
+### Trace ID response header
+
+Reactive applications expose the active OpenTelemetry trace ID to API callers by default. The header name can be
+customized or the feature can be disabled explicitly:
+
+```yaml
+valensas:
+  observability:
+    trace-response-header:
+      enabled: false
+      name: X-Trace-Id
+```
+
+The feature only exposes the current trace ID; service-to-service propagation continues to use the configured
+OpenTelemetry propagator, such as the W3C `traceparent` header.
+
 ### Version metrics
 
 This feature allows to expose you application's dependencies' versions to Micrometer. This feature

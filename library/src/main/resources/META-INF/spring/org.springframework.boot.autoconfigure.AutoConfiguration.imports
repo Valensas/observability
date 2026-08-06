@@ -1,4 +1,5 @@
 com.valensas.observability.config.TracingAutoConfiguration
+com.valensas.observability.config.TraceIdResponseWebFilterAutoConfiguration
 com.valensas.observability.config.VersionMetricsAutoConfiguration
 com.valensas.observability.config.BuildInfoAutoConfiguration
 com.valensas.observability.config.FeignMicrometerAutoConfiguration
